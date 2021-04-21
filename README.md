@@ -10,7 +10,7 @@ Start frontend: `cd frontend` + `npm start`
 
 _____________________________
 
-![Alt text](./client/public/img/screenshot.jpg "Screenshot")
+![Alt text](./frontend/public/homepage.png "Screenshot")
 
   
 💻 Made by Mosindo, April 2021. 

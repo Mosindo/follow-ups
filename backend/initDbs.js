@@ -24,8 +24,14 @@ async function createCustomers() {
         {
             firstName: "Cyril",
             name: "Figgis",
+            stage:"Prospect"
+        },
+        {
+            firstName: "Carll",
+            name: "Faro",
+            stage:"1ere relance"
             
-        }
+        },
     ]);
     await console.log("customers")
 }

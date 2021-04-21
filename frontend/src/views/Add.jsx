@@ -42,7 +42,9 @@ const Add = () => {
   return (
     <div className="row ">
       <Navbar />
-      <h2 className="d-flex justify-content-center m-2">Ajout d'un nouveau prospect</h2>
+      <h2 className="d-flex justify-content-center m-2">
+        Ajout d'un nouveau prospect
+      </h2>
       <form onSubmit={handleSubmit}>
         <div className="col d-flex justify-content-center m-2">
           <input
@@ -52,7 +54,11 @@ const Add = () => {
             onChange={(e) => setFirstName(e.target.value)}
           />
         </div>
-        {submitted && !firstName ? <p className="d-flex justify-content-center m-2">Veuillez taper votre nom</p>: null}
+        {submitted && !firstName ? (
+          <p className="d-flex justify-content-center m-2">
+            Veuillez taper votre nom
+          </p>
+        ) : null}
         <div className="col d-flex justify-content-center m-2 ">
           <input
             type="text"
@@ -61,9 +67,17 @@ const Add = () => {
             onChange={(e) => setName(e.target.value)}
           />
         </div>
-        {submitted && !name ? <p className="d-flex justify-content-center m-2">Veuillez taper votre prénom</p> : null}
+        {submitted && !name ? (
+          <p className="d-flex justify-content-center m-2">
+            Veuillez taper votre prénom
+          </p>
+        ) : null}
         <div className="col d-flex justify-content-center m-2 ">
-          <select style={{width: "182px",height:"30px"}} onChange={handleChange} value={stage}>
+          <select
+            style={{ width: "182px", height: "30px" }}
+            onChange={handleChange}
+            value={stage}
+          >
             <option value="Prospect">Prospect</option>
             <option value="1er contact">1er contact</option>
             <option value=" 1ere relance"> 1ere relance</option>
@@ -71,9 +85,13 @@ const Add = () => {
             <option value="Signature">Signature</option>
           </select>
         </div>
-        {submitted && !stage ? <p className="d-flex justify-content-center">Veuillez choisir une catégorie</p> : null}
+        {submitted && !stage ? (
+          <p className="d-flex justify-content-center">
+            Veuillez choisir une catégorie
+          </p>
+        ) : null}
         <div className="col d-flex justify-content-center ">
-          <input style={{width: "182px",height:"30px"}} type="submit" />
+          <input style={{ width: "182px", height: "30px" }} type="submit" />
         </div>
       </form>
     </div>

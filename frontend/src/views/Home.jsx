@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./../components/Navbar";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./styles/Home.css";
 
 const Home = () => {
@@ -17,7 +17,12 @@ const Home = () => {
       <Navbar />
       <h2 className="m-4 d-flex justify-content-center">suivi des prospects</h2>
       <div className="d-flex justify-content-center">
-      <Link className="m-3 btn btn-primary d-flex justify-content-center" to="/add">Ajout d'un prospect</Link>
+        <Link
+          className="m-3 btn btn-primary d-flex justify-content-center"
+          to="/add"
+        >
+          Ajout d'un prospect
+        </Link>
       </div>
       <table class="table">
         <thead>
@@ -40,13 +45,22 @@ const Home = () => {
                 <td>{customers.name}</td>
                 <td>{customers.stage}</td>
                 <td>
-                    <ul className="choice">
-                        <li>
-                        <Link to={`/update/${customers._id}`}  className="btn btn-success">modifier</Link>
-                        <Link to={`/delete/${customers._id}`} className="btn btn-danger">Supprimer</Link>
-                        </li>
-                    </ul>
-                  
+                  <ul className="choice">
+                    <li>
+                      <Link
+                        to={`/update/${customers._id}`}
+                        className="btn btn-success"
+                      >
+                        modifier
+                      </Link>
+                      <Link
+                        to={`/delete/${customers._id}`}
+                        className="btn btn-danger"
+                      >
+                        Supprimer
+                      </Link>
+                    </li>
+                  </ul>
                 </td>
               </tr>
             );

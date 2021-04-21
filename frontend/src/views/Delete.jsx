@@ -30,7 +30,7 @@ const Delete = () => {
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
-      history.push("/");
+    history.push("/");
   };
 
   const result = data.filter((data) => data._id === id);
@@ -45,7 +45,10 @@ const Delete = () => {
         {result.map((customer) => {
           return (
             <>
-              <p>Êtes-vous sûr de vouloir supprimer ce prospect: {customer.firstName} {customer.name}</p>
+              <p>
+                Êtes-vous sûr de vouloir supprimer ce prospect:{" "}
+                {customer.firstName} {customer.name}
+              </p>
               <p></p>
             </>
           );

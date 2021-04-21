@@ -1,5 +1,5 @@
-const express = require('express');
-const mongoose = require('mongoose');
+const express = require("express");
+const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const customersRoute = require("./controllers/customers.js");
@@ -29,5 +29,5 @@ app.use(bodyParser.urlencoded({
 app.use(cors());
 
 app.listen(port, () => {
-  console.log('Server started on port: ' + port);
+  console.log("Server started on port: " + port);
 });

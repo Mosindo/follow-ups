@@ -12,7 +12,7 @@ const Log = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setSubmitted(true);
-    if (login === "" && password === "" ) {
+    if (login === "" && password === "") {
       return console.log("something missing");
     } else {
       fetch(`http://localhost:8000/customers/add`, {
@@ -21,7 +21,7 @@ const Log = () => {
           "Content-type": "application/json",
         },
         body: JSON.stringify({
-          login:login,
+          login: login,
           password: password,
         }),
       })
