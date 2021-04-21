@@ -1,0 +1,30 @@
+.choice a{
+    text-decoration: none;
+    color:white;
+    margin: 10px  ;
+};
+
+.choice a:hover{
+    color:white;
+};
+
+.btn-primary{
+    margin: 16px;
+};
+
+h2{
+    margin: 16px;
+};
+
+ul {
+    list-style-type: none;
+    margin-bottom:0px;   
+}
+
+li{
+    display: inline;
+    justify-content: flex-end ;
+    margin: 10px;
+    color: black;
+}
+
