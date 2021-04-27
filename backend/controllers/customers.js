@@ -31,7 +31,7 @@ router.post("/add", async (req, res, next) => {
     });
 
     if (customerName) {
-      res.status(400).json(`L'email ${req.body.name} existe déja`);
+      res.status(400).json(`Le prénom ${req.body.name} existe déja`);
       return;
     }
 

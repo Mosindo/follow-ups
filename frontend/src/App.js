@@ -11,12 +11,13 @@ function App() {
     <div>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/update/:id" component={Update} />
-          <Route path="/delete/:id" component={Delete} />
-          <Route path="/add" component={Add} />
-          <Route path="/log" component={Log} />
-          <Route path="*" component={Error404} />
+          <Route exact path="/" component={Log} />
+          <Route exact path="/home/:login" component={Home} />
+          <Route exact path="/update/:login/:id" component={Update} />
+          <Route exact path="/delete/:id" component={Delete} />
+          <Route exact path="/add" component={Add} />
+          <Route exact path="/log" component={Log} />
+          <Route exact path="*" component={Error404} />
         </Switch>
       </BrowserRouter>
     </div>

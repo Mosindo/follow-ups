@@ -29,8 +29,11 @@ const Delete = () => {
       }),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
-    history.push("/");
+      .then((data) => {
+        console.log(data);
+        history.push("/home");
+      });
+    
   };
 
   const result = data.filter((data) => data._id === id);
@@ -49,7 +52,6 @@ const Delete = () => {
                 Êtes-vous sûr de vouloir supprimer ce prospect:{" "}
                 {customer.firstName} {customer.name}
               </p>
-              <p></p>
             </>
           );
         })}

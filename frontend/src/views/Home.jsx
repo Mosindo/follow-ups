@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./../components/Navbar";
-import { Link } from "react-router-dom";
+import { Link ,useParams} from "react-router-dom";
 import "./styles/Home.css";
 
 const Home = () => {
   const [data, setData] = useState([]);
+
+  const {login}  = useParams("");
+  
 
   useEffect(() => {
     fetch("http://localhost:8000/customers/")
@@ -15,7 +18,8 @@ const Home = () => {
   return (
     <div>
       <Navbar />
-      <h2 className="m-4 d-flex justify-content-center">suivi des prospects</h2>
+      <h2 className="m-4 d-flex justify-content-center">Bienvenue {login}</h2>
+      <h3 className="m-4 d-flex justify-content-center">suivi des prospects</h3>
       <div className="d-flex justify-content-center">
         <Link
           className="m-3 btn btn-primary d-flex justify-content-center"
@@ -48,7 +52,7 @@ const Home = () => {
                   <ul className="choice">
                     <li>
                       <Link
-                        to={`/update/${customers._id}`}
+                        to={`/update/${login}/${customers._id}`}
                         className="btn btn-success"
                       >
                         modifier

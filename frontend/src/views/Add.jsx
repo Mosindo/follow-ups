@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
-import { useHistory } from "react-router-dom";
+import { useParams, useHistory  } from "react-router-dom";
 
 const Add = () => {
   const [firstName, setFirstName] = useState("");
@@ -9,6 +9,7 @@ const Add = () => {
   const [submitted, setSubmitted] = useState(false);
 
   const history = useHistory();
+  const {login}= useParams();
 
   function handleChange(e) {
     setStage(e.target.value);
@@ -18,7 +19,7 @@ const Add = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setSubmitted(true);
-    if (firstName === "" && name === "" && stage === "") {
+    if (firstName === "" || name === "" || stage === "") {
       return console.log("something missing");
     } else {
       fetch(`http://localhost:8000/customers/add`, {
@@ -33,8 +34,9 @@ const Add = () => {
         }),
       })
         .then((res) => res.json())
-        .then((data) => console.log(data));
-      history.push("/");
+        .then((data) => {console.log(data);
+      history.push(`/home/${login}`);
+    })
     }
   };
 

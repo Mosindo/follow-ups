@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
-import { useHistory } from "react-router-dom";
+import { useHistory ,Link} from "react-router-dom";
 
 const Log = () => {
   const [login, setLogin] = useState("");
@@ -12,22 +12,22 @@ const Log = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setSubmitted(true);
-    if (login === "" && password === "") {
+    if (login === "" || password === "") {
       return console.log("something missing");
     } else {
-      fetch(`http://localhost:8000/customers/add`, {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({
-          login: login,
-          password: password,
-        }),
-      })
-        .then((res) => res.json())
-        .then((data) => console.log(data));
-      history.push("/");
+      // fetch(`http://localhost:8000/customers/add`, {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     login: login,
+      //     password: password,
+      //   }),
+      // })
+      //   .then((res) => res.json())
+      //   .then((data) => console.log(data));
+      history.push("/home");
     }
   };
 
@@ -65,7 +65,14 @@ const Log = () => {
           </p>
         ) : null}
         <div className="col d-flex justify-content-center ">
-          <input style={{ width: "182px", height: "30px" }} type="submit" />
+          <Link style={{ width: "182px", height: "30px",justifyContent:"center" }}
+                        to={`/home/${login}`}
+                        className="btn btn-success"
+                        value=" se connecter"
+                      >
+                        se connecter
+                       {/* <input  type="submit" value=" se connecter" /> */}
+                      </Link>
         </div>
       </form>
     </div>

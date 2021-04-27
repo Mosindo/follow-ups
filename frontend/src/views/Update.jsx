@@ -1,17 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import { useParams, useHistory } from "react-router-dom";
 
-const Update = () => {
+const Update = (props) => {
+  const [data,setData]=useState([]);
   const [firstName, setFirstName] = useState("");
   const [name, setName] = useState("");
   const [stage, setStage] = useState("");
-
   const [submitted, setSubmitted] = useState(false);
+
+
 
   const history = useHistory();
 
-  const { id } = useParams("");
+  const { id,login } = useParams("");
+
+  useEffect(() => {
+    fetch("http://localhost:8000/customers/")
+      .then((response) => response.json())
+      .then((response) => setData(response));
+  }, []);
+
+  console.log(data);
+  const result = data.filter((data) => data._id === id);
+  console.log(result);
 
   function handleChange(e) {
     setStage(e.target.value);
@@ -20,7 +32,7 @@ const Update = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setSubmitted(true);
-    if (firstName === "" && name === "" && stage === "") {
+    if (firstName === "" || name === "" || stage === "") {
       return console.log("something missing");
     } else {
       fetch(`http://localhost:8000/customers/update/${id}`, {
@@ -35,8 +47,12 @@ const Update = () => {
         }),
       })
         .then((res) => res.json())
-        .then((data) => console.log(data));
-      history.push("/");
+        .then((data) => {console.log(data)
+        if(data){
+         history.push(`/home/${login}`);
+        }
+        });
+     
     }
   };
   console.log(stage, name, firstName);
@@ -46,12 +62,18 @@ const Update = () => {
       <h2 className="d-flex justify-content-center m-2">
         mise à jour contact{" "}
       </h2>
+      {result.map((customer) => { return (
+          <>
+         <p className="d-flex justify-content-center m-2">Êtes-vous sûre de vouloir modifier : {customer.firstName} {customer.name}</p> 
+          </>
+          
+        )})};
       <form onSubmit={handleSubmit}>
         <div className="col d-flex justify-content-center m-2">
           <input
             type="text"
             placeholder="Nom"
-            value={firstName}
+            value={result.firstName}
             onChange={(e) => setFirstName(e.target.value)}
           />
         </div>
@@ -64,7 +86,7 @@ const Update = () => {
           <input
             type="text"
             placeholder="Prénom"
-            value={name}
+            value={result.name}
             onChange={(e) => setName(e.target.value)}
           />
         </div>
