@@ -4,11 +4,13 @@ import { Link ,useParams} from "react-router-dom";
 import "./styles/Home.css";
 
 const Home = () => {
+  //la variable data va contenir les clients present sur la base de donnée en utilisant useState
   const [data, setData] = useState([]);
 
+  //login va recupérer l'identifiant de l'utilisateur
   const {login}  = useParams("");
   
-
+  //le useEffect va permettre de recupérer les données client et transmis à la variable data avec le setData
   useEffect(() => {
     fetch("http://localhost:8000/customers/")
       .then((response) => response.json())
@@ -39,6 +41,7 @@ const Home = () => {
           </tr>
         </thead>
         <tbody>
+          {/* les données sont affichés avec la methode map */}
           {data.map((customers, idx) => {
             return (
               <tr>

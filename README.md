@@ -18,5 +18,11 @@ _____________________________
 
 ![Alt text](./frontend/public/homepage.png "Screenshot")
 
+## Todo
+-log out button
+-comment to translate in english
+-delete and update directly on the homepage
+-try to make a more elaborate design
+
   
 💻 Made by Mosindo, April 2021. 
