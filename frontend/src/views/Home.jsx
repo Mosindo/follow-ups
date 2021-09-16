@@ -10,7 +10,7 @@ const Home = () => {
   //login will get the user's ID
   const {login}  = useParams("");
   
-  //the useEffect will allow to get the customer data and passed to data with the "test"setData
+  //the useEffect will allow to get the customer data and passed to data with the setData
   useEffect(() => {
     fetch("http://localhost:8000/customers/")
       .then((response) => response.json())
