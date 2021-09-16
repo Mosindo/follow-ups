@@ -3,17 +3,15 @@ import Navbar from "../components/Navbar";
 import { useParams, useHistory } from "react-router-dom";
 
 const Update = (props) => {
-  const [data,setData]=useState([]);
+  const [data, setData] = useState([]);
   const [firstName, setFirstName] = useState("");
   const [name, setName] = useState("");
   const [stage, setStage] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
-
-
   const history = useHistory();
 
-  const { id,login } = useParams("");
+  const { id, login } = useParams("");
 
   useEffect(() => {
     fetch("http://localhost:8000/customers/")
@@ -47,12 +45,12 @@ const Update = (props) => {
         }),
       })
         .then((res) => res.json())
-        .then((data) => {console.log(data)
-        if(data){
-         history.push(`/home/${login}`);
-        }
+        .then((data) => {
+          console.log(data);
+          if (data) {
+            history.push(`/home/${login}`);
+          }
         });
-     
     }
   };
   console.log(stage, name, firstName);
@@ -62,12 +60,17 @@ const Update = (props) => {
       <h2 className="d-flex justify-content-center m-2">
         mise à jour contact{" "}
       </h2>
-      {result.map((customer) => { return (
+      {result.map((customer) => {
+        return (
           <>
-         <p className="d-flex justify-content-center m-2">Êtes-vous sûre de vouloir modifier : {customer.firstName} {customer.name}</p> 
+            <p className="d-flex justify-content-center m-2">
+              Êtes-vous sûre de vouloir modifier : {customer.firstName}{" "}
+              {customer.name}
+            </p>
           </>
-          
-        )})};
+        );
+      })}
+      ;
       <form onSubmit={handleSubmit}>
         <div className="col d-flex justify-content-center m-2">
           <input
@@ -101,6 +104,9 @@ const Update = (props) => {
             onChange={handleChange}
             value={stage}
           >
+            <option value="" selected disabled hidden>
+              type de contact
+            </option>
             <option value="Prospect">Prospect</option>
             <option value="1er contact">1er contact</option>
             <option value=" 1ere relance"> 1ere relance</option>

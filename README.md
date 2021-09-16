@@ -25,4 +25,4 @@ _____________________________
 -try to make a more elaborate design
 
   
-💻 Made by Mosindo, April 2021. 
+💻 Made by Mosindo

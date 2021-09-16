@@ -13,7 +13,8 @@ const Delete = () => {
   }, []);
 
   console.log(data);
-
+  
+  const { login } = useParams("");
   const { id } = useParams("");
   console.log(id);
 
@@ -31,7 +32,7 @@ const Delete = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        history.push("/home");
+        history.push(`/home/${login}`);
       });
     
   };

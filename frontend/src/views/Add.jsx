@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
-import { useParams, useHistory  } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 const Add = () => {
   const [firstName, setFirstName] = useState("");
@@ -9,7 +9,7 @@ const Add = () => {
   const [submitted, setSubmitted] = useState(false);
 
   const history = useHistory();
-  const {login}= useParams();
+  const { login } = useParams();
 
   function handleChange(e) {
     setStage(e.target.value);
@@ -34,9 +34,10 @@ const Add = () => {
         }),
       })
         .then((res) => res.json())
-        .then((data) => {console.log(data);
-      history.push(`/home/${login}`);
-    })
+        .then((data) => {
+          console.log(data);
+          history.push(`/home/${login}`);
+        });
     }
   };
 
@@ -80,6 +81,9 @@ const Add = () => {
             onChange={handleChange}
             value={stage}
           >
+            <option value="" selected disabled hidden>
+              type de relation commerciale
+            </option>
             <option value="Prospect">Prospect</option>
             <option value="1er contact">1er contact</option>
             <option value=" 1ere relance"> 1ere relance</option>

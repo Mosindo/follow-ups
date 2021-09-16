@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
-import { useHistory ,Link} from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 const Log = () => {
+  //user data
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
   const history = useHistory();
 
+  //function to connect to your user space with a post request
   const handleSubmit = (event) => {
     event.preventDefault();
     setSubmitted(true);
@@ -65,14 +67,14 @@ const Log = () => {
           </p>
         ) : null}
         <div className="col d-flex justify-content-center ">
-          <Link style={{ width: "182px", height: "30px",justifyContent:"center" }}
-                        to={`/home/${login}`}
-                        className="btn btn-success"
-                        value=" se connecter"
-                      >
-                        se connecter
-                       {/* <input  type="submit" value=" se connecter" /> */}
-                      </Link>
+          <Link
+            style={{ width: "182px", height: "30px", justifyContent: "center" }}
+            to={`/home/${login}`}
+            className="btn btn-success"
+            value=" se connecter"
+          >
+            se connecter
+          </Link>
         </div>
       </form>
     </div>

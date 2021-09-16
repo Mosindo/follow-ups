@@ -4,13 +4,13 @@ import { Link ,useParams} from "react-router-dom";
 import "./styles/Home.css";
 
 const Home = () => {
-  //la variable data va contenir les clients present sur la base de donnée en utilisant useState
+  //data will contain the customer data 
   const [data, setData] = useState([]);
 
-  //login va recupérer l'identifiant de l'utilisateur
+  //login will get the user's ID
   const {login}  = useParams("");
   
-  //le useEffect va permettre de recupérer les données client et transmis à la variable data avec le setData
+  //the useEffect will allow to get the customer data and passed to data with the setData
   useEffect(() => {
     fetch("http://localhost:8000/customers/")
       .then((response) => response.json())
@@ -41,7 +41,7 @@ const Home = () => {
           </tr>
         </thead>
         <tbody>
-          {/* les données sont affichés avec la methode map */}
+          {/* the data are displayed with the map method */}
           {data.map((customers, idx) => {
             return (
               <tr>
@@ -54,12 +54,14 @@ const Home = () => {
                 <td>
                   <ul className="choice">
                     <li>
+                      {/* link to modify a customer's data */}
                       <Link
                         to={`/update/${login}/${customers._id}`}
                         className="btn btn-success"
                       >
                         modifier
                       </Link>
+                      {/* link to remove a customer from the database */}
                       <Link
                         to={`/delete/${customers._id}`}
                         className="btn btn-danger"
