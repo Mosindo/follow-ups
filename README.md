@@ -1,4 +1,4 @@
-# test_upswing_engineering
+# upswing_engineering
 
 ## intro
 This project is a customer follow-up, with the possibility to add, delete or modify a customer.
